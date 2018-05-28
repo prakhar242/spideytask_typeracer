@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TYPERACER</title>
+</head>
+<style>
+div {
+    background-color: lightgrey;
+    width: 300px;
+    border: 25px solid green;
+    padding: 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+</style>
+<body>
+	<h1 style="text-align: center;">Here you can test your <i> TYPING SPEED </i></h1>
+	<div id="content">Sometimes the debt would appear as a massive sinkhole in the living room floor, one into which he dreaded he might one day dive, to be chewed up and consumed within the abyss of its distended belly, the monster’s savage lips smacking sharply somewhere miles above.Sometimes he ignored it.!
+</div>
+<p id="bgn"></p>
+	<textarea id="textbox" rows="2" cols="50" placeholder="Start Typing Here" onkeyup ="checkKey()" ></textarea> </br> </br>
+<button id="btn" onclick="startTest();"> CLICK TO START!</button> 
+<button id="btn1" onclick="endTest();"> CLICK TO END!</button>
+</body>
+<script type="text/javascript">
+	var start ="<hr/>";
+	var end ="<hr/>";
+	var time= "<hr/>";
+	var tau= (1000);
+	var i=0;
+	var k=0;
+	var totalChar = (289);
+	var finalSpeed ="<hr/>"; 
+function checkKey() 
+{ 
+	var plaintext = document.getElementById("textbox").value;
+	var l = document.getElementById("textbox");
+	var check = document.getElementById("content").innerHTML;
+	k= plaintext.localeCompare(check);
+    if(k!=0) 
+ { 
+      l.setAttribute("onkeyup" , "return false");
+ }
+else {
+      plaintext.style.color = "green";
+   }
+}
+ function startTest()
+ {
+  start = new Date().getTime();
+  document.getElementById("bgn").innerHTML = "Your Time Has Started";
+ }
+ function endTest()
+ {
+ 	end = new Date().getTime();
+ 	document.getElementById("bgn").innerHTML = "Your Time Has Ended";
+    time=((end-start)/tau);
+     alert('You have taken: ' + time + ' seconds');
+     finalSpeed= (totalChar/time);
+     document.getElementById("bgn").innerHTML = " Your Typing Speed is " + finalSpeed + " characters/sec ";
+
+}
+</script>
+</html>
